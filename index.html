@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_3654328_82xfx9apkpy.css">
+  <title>给最喜欢的小云宝</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="img">
+        <img src="img/1.jpg" alt="">
+        <span class="iconfont icon-aixin anima" id="aixin"></span>
+        <img src="img/2.jpg" alt="">
+      </div>
+      <div id="box"></div>
+    </div>
+  </div>
+
+
+
+
+  <script>
+    function nowtime() {
+      var d1 = new Date('2022/05/21 17:21:00');
+      var d2 = new Date();
+      var second;
+      var minute;
+      var hour;
+      var day;
+      second = Math.floor(parseInt(d2 - d1) / 1000 % 60);//两个时间相差的秒数
+      minute = Math.floor((d2 - d1) / 1000 / 60 % 60);//两个时间相差的分钟数
+      hour = Math.floor(parseInt(d2 - d1) / 1000 / 60 / 60 % 24);//两个时间相差的小时数
+      day = Math.floor(parseInt(d2 - d1) / 1000 / 60 / 60 / 24);
+      var time = day + " 天 " + hour + " 小时 " + minute + " 分钟 " + second + " 秒 "
+      document.getElementById("box").innerHTML = time;
+    }
+    nowtime();		//首次刷新不会有延时
+    window.setInterval(nowtime, 1000);//用setInterval来实现每秒刷新一次。1000的单位是毫秒
+  </script>
+</body>
+
+</html>
